@@ -1,0 +1,112 @@
+{
+  "pepsi_250ml": {
+    "name": "Pepsi Cola 250ml",
+    "price": 30.0,
+    "category": "Cola",
+    "brand": "Pepsi",
+    "size": "250ml",
+    "stock": 500,
+    "description": "Classic Pepsi cola drink in 250ml bottle",
+    "is_active": true
+  },
+  "pepsi_500ml": {
+    "name": "Pepsi Cola 500ml",
+    "price": 50.0,
+    "category": "Cola",
+    "brand": "Pepsi", 
+    "size": "500ml",
+    "stock": 300,
+    "description": "Classic Pepsi cola drink in 500ml bottle",
+    "is_active": true
+  },
+  "pepsi_1_5l": {
+    "name": "Pepsi Cola 1.5L",
+    "price": 90.0,
+    "category": "Cola",
+    "brand": "Pepsi",
+    "size": "1.5L",
+    "stock": 150,
+    "description": "Classic Pepsi cola drink in 1.5L bottle",
+    "is_active": true
+  },
+  "7up_250ml": {
+    "name": "7UP Lemon Lime 250ml",
+    "price": 30.0,
+    "category": "Lemon-Lime",
+    "brand": "7UP",
+    "size": "250ml",
+    "stock": 400,
+    "description": "Refreshing lemon-lime drink, caffeine-free",
+    "is_active": true
+  },
+  "7up_500ml": {
+    "name": "7UP Lemon Lime 500ml",
+    "price": 50.0,
+    "category": "Lemon-Lime",
+    "brand": "7UP",
+    "size": "500ml",
+    "stock": 250,
+    "description": "Refreshing lemon-lime drink, caffeine-free",
+    "is_active": true
+  },
+  "mirinda_250ml": {
+    "name": "Mirinda Orange 250ml",
+    "price": 32.0,
+    "category": "Orange",
+    "brand": "Mirinda",
+    "size": "250ml",
+    "stock": 350,
+    "description": "Orange flavored carbonated soft drink",
+    "is_active": true
+  },
+  "mirinda_500ml": {
+    "name": "Mirinda Orange 500ml",
+    "price": 52.0,
+    "category": "Orange",
+    "brand": "Mirinda",
+    "size": "500ml",
+    "stock": 200,
+    "description": "Orange flavored carbonated soft drink",
+    "is_active": true
+  },
+  "mountain_dew_250ml": {
+    "name": "Mountain Dew 250ml",
+    "price": 35.0,
+    "category": "Citrus",
+    "brand": "Mountain Dew",
+    "size": "250ml",
+    "stock": 200,
+    "description": "Citrus flavored energy drink with caffeine",
+    "is_active": true
+  },
+  "mountain_dew_500ml": {
+    "name": "Mountain Dew 500ml",
+    "price": 55.0,
+    "category": "Citrus",
+    "brand": "Mountain Dew",
+    "size": "500ml",
+    "stock": 150,
+    "description": "Citrus flavored energy drink with caffeine",
+    "is_active": true
+  },
+  "aquafina_500ml": {
+    "name": "Aquafina Water 500ml",
+    "price": 25.0,
+    "category": "Water",
+    "brand": "Aquafina",
+    "size": "500ml",
+    "stock": 600,
+    "description": "Premium purified bottled water",
+    "is_active": true
+  },
+  "aquafina_1l": {
+    "name": "Aquafina Water 1L",
+    "price": 40.0,
+    "category": "Water",
+    "brand": "Aquafina",
+    "size": "1L",
+    "stock": 400,
+    "description": "Premium purified bottled water",
+    "is_active": true
+  }
+}

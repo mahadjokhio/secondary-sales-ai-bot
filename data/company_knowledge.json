@@ -1,0 +1,128 @@
+{
+  "company": {
+    "name": "Sukkur Beverages Limited",
+    "established": 1995,
+    "headquarters": "Sukkur, Sindh, Pakistan",
+    "manufacturing_facilities": [
+      "Sukkur Main Plant - 150,000 bottles/day capacity",
+      "Rohri Secondary Plant - 75,000 bottles/day capacity"
+    ],
+    "distribution_network": [
+      "Sindh Province - Complete coverage",
+      "Punjab - Major cities coverage",
+      "Balochistan - Selected cities",
+      "KPK - Peshawar and Islamabad"
+    ],
+    "employee_count": 850,
+    "annual_capacity": "50 million bottles",
+    "certifications": [
+      "ISO 9001:2015 Quality Management",
+      "HACCP Food Safety",
+      "PepsiCo Global Standards Compliance"
+    ]
+  },
+  "brands": {
+    "pepsi": {
+      "name": "Pepsi",
+      "type": "Cola drink",
+      "launch_year": 1998,
+      "description": "Classic cola drink with a bold, refreshing taste",
+      "ingredients": "Carbonated water, high fructose corn syrup, caramel color, sugar, phosphoric acid, caffeine, citric acid, natural flavor",
+      "nutritional_info": {
+        "calories_per_100ml": 42,
+        "sugar_per_100ml": "11g",
+        "sodium_per_100ml": "10mg",
+        "caffeine_per_100ml": "10mg"
+      },
+      "target_demographics": "Youth and young adults (15-35 years)",
+      "market_share": "35% in Pakistan cola market"
+    },
+    "7up": {
+      "name": "7UP",
+      "type": "Lemon-lime drink",
+      "launch_year": 1996,
+      "description": "Caffeine-free lemon-lime flavored carbonated soft drink",
+      "ingredients": "Carbonated water, high fructose corn syrup, citric acid, natural flavors, sodium citrate",
+      "nutritional_info": {
+        "calories_per_100ml": 38,
+        "sugar_per_100ml": "10g",
+        "sodium_per_100ml": "15mg",
+        "caffeine_per_100ml": "0mg"
+      },
+      "target_demographics": "All age groups, family-oriented",
+      "market_share": "25% in Pakistan lemon-lime market"
+    },
+    "mirinda": {
+      "name": "Mirinda",
+      "type": "Orange flavored drink",
+      "launch_year": 1999,
+      "description": "Bold orange flavored carbonated soft drink",
+      "ingredients": "Carbonated water, high fructose corn syrup, citric acid, natural orange flavor, sodium benzoate",
+      "nutritional_info": {
+        "calories_per_100ml": 45,
+        "sugar_per_100ml": "12g",
+        "sodium_per_100ml": "8mg",
+        "caffeine_per_100ml": "0mg"
+      },
+      "target_demographics": "Children and teenagers (8-18 years)",
+      "market_share": "15% in Pakistan orange drink market"
+    },
+    "mountain_dew": {
+      "name": "Mountain Dew",
+      "type": "Citrus energy drink",
+      "launch_year": 2001,
+      "description": "High-energy citrus flavored carbonated drink with caffeine",
+      "ingredients": "Carbonated water, high fructose corn syrup, citric acid, natural flavors, sodium benzoate, caffeine, yellow 5",
+      "nutritional_info": {
+        "calories_per_100ml": 54,
+        "sugar_per_100ml": "14g",
+        "sodium_per_100ml": "12mg",
+        "caffeine_per_100ml": "18mg"
+      },
+      "target_demographics": "Active youth and gamers (16-30 years)",
+      "market_share": "10% in Pakistan energy drink market"
+    },
+    "aquafina": {
+      "name": "Aquafina",
+      "type": "Purified water",
+      "launch_year": 2003,
+      "description": "Premium purified bottled water with 7-step purification process",
+      "purification_process": [
+        "Sediment filtration",
+        "Activated carbon filtration", 
+        "Reverse osmosis",
+        "UV sterilization",
+        "Ozonation",
+        "Polishing filtration",
+        "Quality testing"
+      ],
+      "nutritional_info": {
+        "calories_per_100ml": 0,
+        "total_dissolved_solids": "10-30 ppm",
+        "ph_level": "6.5-7.5"
+      },
+      "target_demographics": "Health-conscious consumers, all ages",
+      "market_share": "20% in Pakistan bottled water market"
+    }
+  },
+  "history": {
+    "1995": "Sukkur Beverages established as PepsiCo franchise partner",
+    "1996": "First 7UP production line installed",
+    "1998": "Pepsi production began",
+    "1999": "Mirinda orange drink launched",
+    "2001": "Mountain Dew introduced to Pakistani market",
+    "2003": "Aquafina water plant commissioned",
+    "2010": "Rohri plant expansion completed",
+    "2015": "ISO certifications achieved",
+    "2020": "Digital transformation initiative launched",
+    "2025": "AI-powered sales system implementation"
+  },
+  "quality_standards": {
+    "production": "PepsiCo Global Manufacturing Standards",
+    "hygiene": "HACCP certified processes",
+    "testing": "Every batch tested for quality and safety",
+    "packaging": "Food-grade materials only",
+    "storage": "Temperature-controlled warehousing",
+    "distribution": "Cold chain maintained throughout"
+  }
+}

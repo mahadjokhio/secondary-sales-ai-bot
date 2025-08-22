@@ -1,0 +1,37 @@
+{
+  "summer_special": {
+    "name": "Summer Special Discount",
+    "description": "Get 10% off on orders above Rs. 5,000",
+    "discount_percent": 10,
+    "min_amount": 5000,
+    "validity": "Valid until August 31, 2025",
+    "applicable_products": [],
+    "is_active": true
+  },
+  "bulk_purchase": {
+    "name": "Bulk Purchase Discount",
+    "description": "5% off on orders with 100+ units of any product",
+    "discount_percent": 5,
+    "min_quantity": 100,
+    "validity": "Ongoing promotion",
+    "applicable_products": [],
+    "is_active": true
+  },
+  "new_outlet": {
+    "name": "New Outlet Welcome Bonus",
+    "description": "15% off for first-time orders from new outlets",
+    "discount_percent": 15,
+    "validity": "For new outlets only - first order",
+    "applicable_products": [],
+    "is_active": true
+  },
+  "pepsi_promo": {
+    "name": "Pepsi Brand Promotion",
+    "description": "Buy 2 get 1 free on all Pepsi products",
+    "discount_percent": 33.33,
+    "min_quantity": 3,
+    "validity": "Valid for September 2025",
+    "applicable_products": ["pepsi_250ml", "pepsi_500ml", "pepsi_1_5l"],
+    "is_active": true
+  }
+}

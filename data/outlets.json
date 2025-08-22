@@ -1,0 +1,62 @@
+{
+  "outlet_001": {
+    "name": "Ahmed Traders",
+    "location": "Main Bazar, Sukkur",
+    "contact_person": "Ahmed Ali",
+    "phone": "+92-300-1234567",
+    "email": "ahmed@traders.com",
+    "credit_limit": 100000.0,
+    "outstanding_amount": 25000.0,
+    "last_order_date": "2025-08-20",
+    "performance_rating": 4.5,
+    "is_active": true
+  },
+  "outlet_002": {
+    "name": "Khan Store",
+    "location": "Commercial Area, Rohri",
+    "contact_person": "Muhammad Khan",
+    "phone": "+92-301-2345678",
+    "email": "khan@store.com",
+    "credit_limit": 50000.0,
+    "outstanding_amount": 15000.0,
+    "last_order_date": "2025-08-18",
+    "performance_rating": 4.2,
+    "is_active": true
+  },
+  "outlet_003": {
+    "name": "City Mart",
+    "location": "Mall Road, Sukkur",
+    "contact_person": "Fatima Sheikh",
+    "phone": "+92-302-3456789",
+    "email": "fatima@citymart.com",
+    "credit_limit": 200000.0,
+    "outstanding_amount": 45000.0,
+    "last_order_date": "2025-08-21",
+    "performance_rating": 4.8,
+    "is_active": true
+  },
+  "outlet_004": {
+    "name": "Super Store",
+    "location": "Barrage Road, Sukkur",
+    "contact_person": "Hassan Ahmed",
+    "phone": "+92-303-4567890",
+    "email": "hassan@superstore.com",
+    "credit_limit": 75000.0,
+    "outstanding_amount": 20000.0,
+    "last_order_date": "2025-08-19",
+    "performance_rating": 4.0,
+    "is_active": true
+  },
+  "outlet_005": {
+    "name": "Quick Mart",
+    "location": "Station Road, Rohri",
+    "contact_person": "Ali Raza",
+    "phone": "+92-304-5678901",
+    "email": "ali@quickmart.com",
+    "credit_limit": 30000.0,
+    "outstanding_amount": 8000.0,
+    "last_order_date": "2025-08-17",
+    "performance_rating": 3.8,
+    "is_active": true
+  }
+}

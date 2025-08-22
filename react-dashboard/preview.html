@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sukkur Beverages - Sales Dashboard Preview</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #F5F7FA 0%, #E8F4FD 100%);
+            color: #2E3A59;
+        }
+
+        .dashboard {
+            display: flex;
+            min-height: 100vh;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            width: 280px;
+            background: linear-gradient(180deg, #005CBF 0%, #003B8C 100%);
+            color: white;
+            padding: 0;
+            position: fixed;
+            height: 100vh;
+            overflow-y: auto;
+        }
+
+        .logo-section {
+            padding: 24px;
+            text-align: center;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .logo-section h1 {
+            font-size: 1.25rem;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+
+        .logo-section p {
+            font-size: 0.875rem;
+            opacity: 0.8;
+        }
+
+        .nav-menu {
+            padding: 16px 8px;
+        }
+
+        .nav-item {
+            display: flex;
+            align-items: center;
+            padding: 12px 16px;
+            margin: 4px 8px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-decoration: none;
+            color: rgba(255,255,255,0.8);
+        }
+
+        .nav-item:hover, .nav-item.active {
+            background-color: rgba(255,255,255,0.1);
+            color: white;
+        }
+
+        .nav-item.active {
+            background-color: white;
+            color: #005CBF;
+            font-weight: 600;
+        }
+
+        .nav-icon {
+            margin-right: 12px;
+            font-size: 20px;
+        }
+
+        /* Main Content */
+        .main-content {
+            flex: 1;
+            margin-left: 280px;
+            padding: 0;
+        }
+
+        .header {
+            background: linear-gradient(90deg, #005CBF 0%, #E32934 100%);
+            color: white;
+            padding: 16px 24px;
+            box-shadow: 0 4px 20px rgba(0, 92, 191, 0.3);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header h2 {
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        .user-info {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .user-avatar {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background-color: #E32934;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+
+        /* Content Area */
+        .content {
+            padding: 24px;
+        }
+
+        .page-header {
+            margin-bottom: 24px;
+        }
+
+        .page-title {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #005CBF;
+            margin-bottom: 8px;
+        }
+
+        .page-subtitle {
+            color: #6B7280;
+        }
+
+        /* Cards Grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 24px;
+            margin-bottom: 32px;
+        }
+
+        .stat-card {
+            background: white;
+            padding: 24px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 92, 191, 0.1);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 30px rgba(0, 92, 191, 0.2);
+        }
+
+        .stat-card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 16px;
+        }
+
+        .stat-value {
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+
+        .stat-label {
+            color: #6B7280;
+            font-size: 0.875rem;
+            margin-bottom: 8px;
+        }
+
+        .stat-trend {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            font-size: 0.875rem;
+        }
+
+        .trend-up {
+            color: #4CAF50;
+        }
+
+        .trend-down {
+            color: #f44336;
+        }
+
+        .stat-icon {
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            color: white;
+        }
+
+        /* Chart Area */
+        .chart-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 24px;
+            margin-bottom: 32px;
+        }
+
+        .chart-card {
+            background: white;
+            padding: 24px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 92, 191, 0.1);
+        }
+
+        .chart-title {
+            font-size: 1.25rem;
+            font-weight: bold;
+            color: #005CBF;
+            margin-bottom: 16px;
+        }
+
+        .chart-placeholder {
+            height: 300px;
+            background: linear-gradient(45deg, #005CBF10 30%, #E3293410 90%);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #005CBF;
+            font-weight: 500;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .sidebar {
+                transform: translateX(-100%);
+            }
+            
+            .main-content {
+                margin-left: 0;
+            }
+            
+            .chart-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Buttons */
+        .btn {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: linear-gradient(45deg, #005CBF 30%, #E32934 90%);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0, 92, 191, 0.3);
+        }
+
+        /* Product Cards */
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 92, 191, 0.1);
+            transition: transform 0.2s ease;
+        }
+
+        .product-card:hover {
+            transform: translateY(-4px);
+        }
+
+        .product-header {
+            height: 120px;
+            background: linear-gradient(45deg, #005CBF 30%, #E32934 90%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .product-content {
+            padding: 20px;
+        }
+
+        .status-chip {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 16px;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+
+        .status-active {
+            background-color: #E8F5E8;
+            color: #2E7D0C;
+        }
+
+        .status-warning {
+            background-color: #FFF3CD;
+            color: #856404;
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="logo-section">
+                <h1>🥤 Sukkur Beverages</h1>
+                <p>Secondary Sales Dashboard</p>
+            </div>
+            
+            <nav class="nav-menu">
+                <a href="#" class="nav-item active" onclick="showPage('dashboard')">
+                    <span class="nav-icon">📊</span>
+                    <span>Dashboard</span>
+                </a>
+                <a href="#" class="nav-item" onclick="showPage('orders')">
+                    <span class="nav-icon">🛒</span>
+                    <span>Orders</span>
+                </a>
+                <a href="#" class="nav-item" onclick="showPage('promotions')">
+                    <span class="nav-icon">🎁</span>
+                    <span>Promotions</span>
+                </a>
+                <a href="#" class="nav-item" onclick="showPage('outlets')">
+                    <span class="nav-icon">🏪</span>
+                    <span>Outlets</span>
+                </a>
+                <a href="#" class="nav-item" onclick="showPage('reports')">
+                    <span class="nav-icon">📈</span>
+                    <span>Reports</span>
+                </a>
+                <a href="#" class="nav-item" onclick="showPage('chat')">
+                    <span class="nav-icon">🤖</span>
+                    <span>AI Chat</span>
+                </a>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Header -->
+            <header class="header">
+                <div class="header-content">
+                    <h2 id="page-title">Dashboard</h2>
+                    <div class="user-info">
+                        <span>🔔</span>
+                        <div class="user-avatar">S</div>
+                        <div>
+                            <div style="font-size: 0.875rem; font-weight: 500;">Sales Rep</div>
+                            <div style="font-size: 0.75rem; opacity: 0.8;">Online</div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Content -->
+            <div class="content">
+                <!-- Dashboard Page -->
+                <div id="dashboard-page" class="page">
+                    <div class="page-header">
+                        <h1 class="page-title">Dashboard Overview</h1>
+                        <p class="page-subtitle">Welcome back! Here's what's happening with your sales today.</p>
+                    </div>
+
+                    <!-- Stats Cards -->
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-card-header">
+                                <div>
+                                    <div class="stat-label">Total Sales</div>
+                                    <div class="stat-value" style="color: #005CBF;">₹67,000</div>
+                                    <div class="stat-trend trend-up">
+                                        <span>↗</span> +12.5%
+                                    </div>
+                                </div>
+                                <div class="stat-icon" style="background-color: #005CBF;">💰</div>
+                            </div>
+                        </div>
+
+                        <div class="stat-card">
+                            <div class="stat-card-header">
+                                <div>
+                                    <div class="stat-label">Orders Today</div>
+                                    <div class="stat-value" style="color: #E32934;">42</div>
+                                    <div class="stat-trend trend-up">
+                                        <span>↗</span> +8.3%
+                                    </div>
+                                </div>
+                                <div class="stat-icon" style="background-color: #E32934;">🛒</div>
+                            </div>
+                        </div>
+
+                        <div class="stat-card">
+                            <div class="stat-card-header">
+                                <div>
+                                    <div class="stat-label">Active Outlets</div>
+                                    <div class="stat-value" style="color: #00C851;">156</div>
+                                    <div class="stat-trend trend-up">
+                                        <span>↗</span> +5.2%
+                                    </div>
+                                </div>
+                                <div class="stat-icon" style="background-color: #00C851;">🏪</div>
+                            </div>
+                        </div>
+
+                        <div class="stat-card">
+                            <div class="stat-card-header">
+                                <div>
+                                    <div class="stat-label">Active Promotions</div>
+                                    <div class="stat-value" style="color: #FF6900;">8</div>
+                                    <div class="stat-trend trend-down">
+                                        <span>↘</span> -2.1%
+                                    </div>
+                                </div>
+                                <div class="stat-icon" style="background-color: #FF6900;">🎁</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Charts -->
+                    <div class="chart-grid">
+                        <div class="chart-card">
+                            <h3 class="chart-title">Sales Trend (Last 6 Months)</h3>
+                            <div class="chart-placeholder">
+                                📈 Interactive Chart Area<br>
+                                <small>Sales trending upward with peak in June</small>
+                            </div>
+                        </div>
+
+                        <div class="chart-card">
+                            <h3 class="chart-title">Product Distribution</h3>
+                            <div class="chart-placeholder">
+                                🥤 Product Sales<br>
+                                <small>Pepsi Cola leads with 35%</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Orders Page -->
+                <div id="orders-page" class="page" style="display: none;">
+                    <div class="page-header">
+                        <h1 class="page-title">Order Management</h1>
+                        <p class="page-subtitle">Manage and track all sales orders</p>
+                    </div>
+                    
+                    <div class="chart-card">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                            <h3 class="chart-title">Recent Orders</h3>
+                            <button class="btn btn-primary">+ New Order</button>
+                        </div>
+                        
+                        <div style="overflow-x: auto;">
+                            <table style="width: 100%; border-collapse: collapse;">
+                                <thead>
+                                    <tr style="background-color: #F8FAFC;">
+                                        <th style="padding: 12px; text-align: left; color: #005CBF; font-weight: bold;">Order ID</th>
+                                        <th style="padding: 12px; text-align: left; color: #005CBF; font-weight: bold;">Customer</th>
+                                        <th style="padding: 12px; text-align: left; color: #005CBF; font-weight: bold;">Outlet</th>
+                                        <th style="padding: 12px; text-align: left; color: #005CBF; font-weight: bold;">Total</th>
+                                        <th style="padding: 12px; text-align: left; color: #005CBF; font-weight: bold;">Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td style="padding: 12px;">ORD-001</td>
+                                        <td style="padding: 12px;">Ahmed Khan</td>
+                                        <td style="padding: 12px;">Super Mart Downtown</td>
+                                        <td style="padding: 12px;">₹4,500</td>
+                                        <td style="padding: 12px;"><span class="status-chip status-active">Completed</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td style="padding: 12px;">ORD-002</td>
+                                        <td style="padding: 12px;">Sara Ahmed</td>
+                                        <td style="padding: 12px;">City Mall Store</td>
+                                        <td style="padding: 12px;">₹2,400</td>
+                                        <td style="padding: 12px;"><span class="status-chip status-warning">Pending</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td style="padding: 12px;">ORD-003</td>
+                                        <td style="padding: 12px;">Hassan Ali</td>
+                                        <td style="padding: 12px;">Corner Shop Plaza</td>
+                                        <td style="padding: 12px;">₹6,600</td>
+                                        <td style="padding: 12px;"><span class="status-chip status-warning">Processing</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Promotions Page -->
+                <div id="promotions-page" class="page" style="display: none;">
+                    <div class="page-header">
+                        <h1 class="page-title">Promotions & Offers</h1>
+                        <p class="page-subtitle">Current active promotions and special offers</p>
+                    </div>
+
+                    <div class="product-grid">
+                        <div class="product-card">
+                            <div class="product-header">33% OFF</div>
+                            <div class="product-content">
+                                <h3 style="color: #005CBF; margin-bottom: 8px;">Summer Cola Blast</h3>
+                                <p style="color: #6B7280; margin-bottom: 12px;">Buy 2 Get 1 Free on all Pepsi Cola variants</p>
+                                <span class="status-chip status-active">Active</span>
+                                <p style="margin-top: 12px; font-size: 0.875rem; color: #6B7280;">Valid until: 2025-08-31</p>
+                            </div>
+                        </div>
+
+                        <div class="product-card">
+                            <div class="product-header">20% OFF</div>
+                            <div class="product-content">
+                                <h3 style="color: #005CBF; margin-bottom: 8px;">7UP Fresh Deal</h3>
+                                <p style="color: #6B7280; margin-bottom: 12px;">20% off on 7UP family pack (6 bottles)</p>
+                                <span class="status-chip status-active">Active</span>
+                                <p style="margin-top: 12px; font-size: 0.875rem; color: #6B7280;">Valid until: 2025-09-15</p>
+                            </div>
+                        </div>
+
+                        <div class="product-card">
+                            <div class="product-header">FREE</div>
+                            <div class="product-content">
+                                <h3 style="color: #005CBF; margin-bottom: 8px;">Mirinda Mania</h3>
+                                <p style="color: #6B7280; margin-bottom: 12px;">Free Mirinda 250ml with every large pizza order</p>
+                                <span class="status-chip status-warning">Ending Soon</span>
+                                <p style="margin-top: 12px; font-size: 0.875rem; color: #6B7280;">Valid until: 2025-08-25</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Other pages placeholders -->
+                <div id="outlets-page" class="page" style="display: none;">
+                    <div class="page-header">
+                        <h1 class="page-title">Outlet Management</h1>
+                        <p class="page-subtitle">Monitor and manage all outlet locations</p>
+                    </div>
+                    <div class="chart-placeholder" style="height: 400px;">
+                        🏪 Outlet Performance Dashboard<br>
+                        <small>156 Active Outlets | Average Performance: 79.5%</small>
+                    </div>
+                </div>
+
+                <div id="reports-page" class="page" style="display: none;">
+                    <div class="page-header">
+                        <h1 class="page-title">Reports & Analytics</h1>
+                        <p class="page-subtitle">Comprehensive sales performance insights</p>
+                    </div>
+                    <div class="chart-placeholder" style="height: 400px;">
+                        📊 Advanced Analytics Dashboard<br>
+                        <small>Revenue: ₹356K | Orders: 847 | Growth: +12.5%</small>
+                    </div>
+                </div>
+
+                <div id="chat-page" class="page" style="display: none;">
+                    <div class="page-header">
+                        <h1 class="page-title">AI Sales Assistant</h1>
+                        <p class="page-subtitle">Get instant insights and assistance for your sales operations</p>
+                    </div>
+                    <div class="chart-card" style="height: 500px;">
+                        <div style="padding: 20px; height: 100%; display: flex; flex-direction: column;">
+                            <div style="flex: 1; background: #F8FAFC; border-radius: 8px; padding: 20px; margin-bottom: 20px; display: flex; align-items: center; justify-content: center;">
+                                🤖 AI Chat Interface<br>
+                                <small>Hello! I'm your AI Sales Assistant. How can I help you today?</small>
+                            </div>
+                            <div style="display: flex; gap: 12px;">
+                                <input type="text" placeholder="Ask me anything about your sales data..." style="flex: 1; padding: 12px; border: 1px solid #E5E7EB; border-radius: 8px;">
+                                <button class="btn btn-primary">Send</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        function showPage(pageId) {
+            // Hide all pages
+            const pages = document.querySelectorAll('.page');
+            pages.forEach(page => page.style.display = 'none');
+            
+            // Show selected page
+            document.getElementById(pageId + '-page').style.display = 'block';
+            
+            // Update header title
+            const titles = {
+                'dashboard': 'Dashboard',
+                'orders': 'Orders',
+                'promotions': 'Promotions',
+                'outlets': 'Outlets',
+                'reports': 'Reports',
+                'chat': 'AI Chat'
+            };
+            document.getElementById('page-title').textContent = titles[pageId];
+            
+            // Update active nav item
+            const navItems = document.querySelectorAll('.nav-item');
+            navItems.forEach(item => item.classList.remove('active'));
+            event.target.closest('.nav-item').classList.add('active');
+        }
+
+        // Add some interactivity
+        document.addEventListener('DOMContentLoaded', function() {
+            // Animate stat cards on load
+            const statCards = document.querySelectorAll('.stat-card');
+            statCards.forEach((card, index) => {
+                setTimeout(() => {
+                    card.style.opacity = '0';
+                    card.style.transform = 'translateY(20px)';
+                    card.style.transition = 'all 0.5s ease';
+                    setTimeout(() => {
+                        card.style.opacity = '1';
+                        card.style.transform = 'translateY(0)';
+                    }, 100);
+                }, index * 100);
+            });
+        });
+    </script>
+</body>
+</html>
