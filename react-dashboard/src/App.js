@@ -122,8 +122,8 @@ const navigationItems = [
   { text: 'Orders', icon: <OrdersIcon />, component: 'orders' },
   { text: 'Promotions', icon: <PromotionsIcon />, component: 'promotions' },
   { text: 'Outlets', icon: <OutletsIcon />, component: 'outlets' },
-  { text: 'Reports', icon: <ReportsIcon />, component: 'reports' },
   { text: 'AI Chat', icon: <ChatIcon />, component: 'chat' },
+  { text: 'Reports', icon: <ReportsIcon />, component: 'reports' },
 ];
 
 function App() {
@@ -162,12 +162,16 @@ function App() {
   const drawer = (
     <Box sx={{ height: '100%', background: 'linear-gradient(180deg, #005CBF 0%, #003B8C 100%)' }}>
       {/* Logo Section */}
-      <Box sx={{ p: 3, textAlign: 'center', borderBottom: '1px solid rgba(255,255,255,0.1)' }}>
-        <Typography variant="h5" sx={{ color: 'white', fontWeight: 'bold', mb: 1 }}>
-          🥤 Sukkur Beverages
+      <Box sx={{ p: 3, textAlign: 'center', borderBottom: '1px solid rgba(255,255,255,0.1)', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+  <img src={process.env.PUBLIC_URL + '/company-logo.jpg'} alt="Company Logo" style={{ width: 40, height: 40, marginBottom: 8 }} />
+        <Typography variant="h5" sx={{ color: 'white', fontWeight: 'bold', mb: 0 }}>
+          Sukkur Beverages Limited
         </Typography>
         <Typography variant="body2" sx={{ color: 'rgba(255,255,255,0.8)' }}>
           Secondary Sales Dashboard
+        </Typography>
+        <Typography variant="subtitle2" sx={{ color: 'rgba(255,255,255,0.95)', fontWeight: 'bold', fontStyle: 'italic', fontSize: '1.1rem', mb: 1 }}>
+          By: Mahad Jokhio
         </Typography>
       </Box>
 
